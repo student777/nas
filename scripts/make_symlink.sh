@@ -1,0 +1,1 @@
+ln -s /HDD1/dfdf/dfdf/test.avi /HDD1/dfdf/alpha

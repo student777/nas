@@ -5,5 +5,20 @@
 	<input ng-model="$ctrl.query" type="text" class="form-control" placeholder="품번" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 <div class="list-group">
-	<a ng-repeat="video in $ctrl.videos | filter:$ctrl.query" href="video/{{video.name}}/{{video.filename}}" class="list-group-item list-group-item-action">{{video.sauce + " / " + video.name}}</a>
+	<button ng-repeat="video in $ctrl.videos | filter:$ctrl.query" type="button" ng-click="$ctrl.play_video(video)" data-target="#video_modal" data-toggle="modal" class="list-group-item list-group-item-action">{{video.sauce + " / " + video.name}}</button>
+</div>
+<div class="modal fade" id="video_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modal-title"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<video id="modal_video" width="100%" height="100%" controls><source id="modal_source" src="" type="video/mp4"></video>
+			</div>
+		</div>
+	</div>
 </div>
